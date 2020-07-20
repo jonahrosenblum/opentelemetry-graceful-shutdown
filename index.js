@@ -6,6 +6,7 @@ app.get('/', (req, res) => {
 });
 
 const port = 8080;
-app.listen(port, () => {
+const host = '0.0.0.0'
+app.listen(port, host, () => {
   console.log('Hello world listening on port', port);
 });
