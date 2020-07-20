@@ -1,7 +1,8 @@
 FROM node:12
 
 # Create app directory
-WORKDIR /usr/src/
+RUN mkdir -p /usr/graceful-shutdown
+WORKDIR /usr/graceful-shutdown
 
 
 COPY package*.json ./
