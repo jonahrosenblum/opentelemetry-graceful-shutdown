@@ -1,11 +1,11 @@
 'use strict'
 
 const express = require('express');
-const { BasicTraceProvider, BatchSpanProcessor } = require('@opentelemetry/tracing')
+const { BasicTracerProvider, BatchSpanProcessor } = require('@opentelemetry/tracing')
 const { TraceExporter } = require('@google-cloud/opentelemetry-cloud-trace-exporter')
 
 const exporter = new TraceExporter();
-const provider = new BasicTraceProvider();
+const provider = new BasicTracerProvider();
 provider.addSpanProcessor(new BatchSpanProcessor(exporter));
 const tracer = provider.getTracer();
 
