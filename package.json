@@ -8,6 +8,9 @@
   },
   "author": "",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "@opentelemetry/tracing": "0.9.0",
+    "@opentelemetry/metrics": "0.9.0",
+    "@openteleemtry/exporter-stackdriver-trace": "0.4.0"
   }
 }
