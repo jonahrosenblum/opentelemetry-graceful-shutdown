@@ -6,7 +6,7 @@ const { TraceExporter } = require('@google-cloud/opentelemetry-cloud-trace-expor
 
 const exporter = new TraceExporter();
 const provider = new BasicTracerProvider();
-provider.addSpanProcessor(new BatchSpanProcessor(exporter));
+provider.addSpanProcessor(new BatchSpanProcessor(exporter, {bufferTimeout: 1E100}));
 const tracer = provider.getTracer();
 
 const app = express();
