@@ -1,11 +1,10 @@
 const express = require('express');
 const {BasicTraceProvider, BatchSpanProcessor} = require('@opentelemetry/tracing')
-const {StackdriverTraceExporter} = require('@opentelemtry/exporter-stackdriver-trace')
+const {TraceExporter} = require('@google-cloud/opentelemetry-cloud-trace-exporter')
 
-const exporter = StackdriverTraceExporter();
-const processor = BatchSpanProcessor(exporter);
+const exporter = TraceExporter();
 const provider = BasicTraceProvider();
-provider.addSpanProcessor(processor)
+provider.addSpanProcessor(BatchSpanProcessor(exporter));
 const tracer = provider.getTracer();
 
 const app = express();
