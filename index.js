@@ -16,6 +16,10 @@ app.get('/trace', (req, res) => {
     res.send(`started trace`);
 });
 
+app.get('/', (req, res) => {
+    res.send(`home`);
+});
+
 const port = 8080;
 const host = '0.0.0.0'
 app.listen(port, host);
