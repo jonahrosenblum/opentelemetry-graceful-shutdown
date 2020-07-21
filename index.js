@@ -12,8 +12,14 @@ const tracer = provider.getTracer();
 const app = express();
 
 app.get('/trace', (req, res) => {
-    tracer.startSpan('foo');
-    res.send(`started trace`);
+    const span = tracer.startSpan('shutdown-parent');
+    tracer.startSpan('shutdown-child', { parent: span });
+    res.send(`started trace but did not end`);
+});
+
+app.get('/shutdown', (req, res) => {
+    process.kill(process.pid, 'SIGTERM')
+    res.send(`sent kill signal`);
 });
 
 app.get('/', (req, res) => {
