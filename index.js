@@ -13,7 +13,9 @@ const app = express();
 
 app.get('/trace', (req, res) => {
     const span = tracer.startSpan('shutdown-parent');
-    tracer.startSpan('shutdown-child', { parent: span });
+    const childSpan = tracer.startSpan('shutdown-child', { parent: span });
+    childSpan.end();
+    span.end();
     res.send(`started trace but did not end`);
 });
 
