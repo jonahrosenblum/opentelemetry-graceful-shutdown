@@ -4,9 +4,14 @@ const express = require('express');
 const { BasicTracerProvider, BatchSpanProcessor } = require('@opentelemetry/tracing')
 const { TraceExporter } = require('@google-cloud/opentelemetry-cloud-trace-exporter')
 
+const bufferConfig = {
+    bufferSize: 1000,
+    bufferTimeout: 200000000000000000000000,
+};
+
 const exporter = new TraceExporter();
 const provider = new BasicTracerProvider();
-provider.addSpanProcessor(new BatchSpanProcessor(exporter, {bufferTimeout: Number.MAX_SAFE_INTEGER}));
+provider.addSpanProcessor(new BatchSpanProcessor(exporter, bufferConfig));
 const tracer = provider.getTracer();
 
 const app = express();
@@ -16,7 +21,7 @@ app.get('/trace', (req, res) => {
     const childSpan = tracer.startSpan('shutdown-child', { parent: span });
     childSpan.end();
     span.end();
-    res.send(`started trace but did not end`);
+    res.send(`created trace`);
 });
 
 app.get('/shutdown', (req, res) => {
