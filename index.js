@@ -6,7 +6,7 @@ const { TraceExporter } = require('@google-cloud/opentelemetry-cloud-trace-expor
 
 const bufferConfig = {
     bufferSize: 1000,
-    bufferTimeout: 200000000000000000000000,
+    bufferTimeout: 990000000,
 };
 
 const exporter = new TraceExporter();
