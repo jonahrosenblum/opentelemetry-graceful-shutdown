@@ -13,7 +13,6 @@
     "@opentelemetry/metrics": "0.9.0",
     "@opentelemetry/tracing": "^0.9.0",
     "express": "^4.17.1",
-    "opentelemetry-base": "file:../opentelemetry-js",
     "perf_hooks": "0.0.1"
   }
 }
