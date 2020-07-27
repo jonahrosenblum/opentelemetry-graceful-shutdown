@@ -1,12 +1,12 @@
 'use strict'
 
 const express = require('express');
-const { BasicTracerProvider, BatchSpanProcessor } = require('@opentelemetry/tracing')
+const { BasicTracerProvider, BatchSpanProcessor } = require('opentelemetry-base/packages/opentelemetry-tracing')
 const { TraceExporter } = require('@google-cloud/opentelemetry-cloud-trace-exporter')
 
 const bufferConfig = {
     bufferSize: 1000,
-    bufferTimeout: 990000000,
+    bufferTimeout: 999999999,
 };
 
 const exporter = new TraceExporter();
