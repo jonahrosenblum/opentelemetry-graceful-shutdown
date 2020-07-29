@@ -8,6 +8,10 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm link
+
+RUN npm install opentelemetry-js
+
 COPY . .
 
 CMD [ "node", "index.js" ]
