@@ -10,7 +10,7 @@ RUN npm install
 
 RUN npm link
 
-RUN npm install opentelemetry-js
+RUN npm install ./opentelemetry-js/
 
 COPY . .
 
