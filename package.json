@@ -9,8 +9,13 @@
   "author": "",
   "dependencies": {
     "@google-cloud/opentelemetry-cloud-trace-exporter": "0.3.0",
+    "@opentelemetry/exporter-prometheus": "^0.10.1",
+    "@opentelemetry/exporter-zipkin": "^0.10.2",
+    "@opentelemetry/metrics": "^0.10.1",
+    "@opentelemetry/tracing": "^0.10.1",
     "express": "^4.17.1",
-    "perf_hooks": "0.0.1",
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "opentelemetry-base": "file:../opentelemetry-js",
+    "perf_hooks": "0.0.1"
   }
 }
